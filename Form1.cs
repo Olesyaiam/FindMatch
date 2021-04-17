@@ -1,16 +1,16 @@
-﻿using System;
+﻿using FindMatch.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FindMatch.Properties;
 
 namespace FindMatch
 {
     public partial class Form1 : Form
     {
-        private DateTime? _startTime = null;
-        private List<int> _randomNumbersOfImages;
+        private DateTime? _startTime;
+        private List<int> _randomNumbersOfImages12; // все номера картинок на поле
         private List<int> _openedButtons;
         private readonly List<Button> _buttons;
         private int _lastButtonContains; // содержимое последней открытой кнопки
@@ -19,10 +19,22 @@ namespace FindMatch
         private readonly List<Bitmap> _imagesGray;
         private List<Button> _temporaryGray; // временно серые кнопки
         private List<int> _permanentGray;
+        private List<PictureBox> _miniImages;
+        private List<int> _randomNumbersOfImages6;
 
         public Form1()
         {
             InitializeComponent();
+
+            _miniImages = new List<PictureBox>
+            {
+                pictureBoxMini1,
+                pictureBoxMini2,
+                pictureBoxMini3,
+                pictureBoxMini4,
+                pictureBoxMini5,
+                pictureBoxMini6
+            };
 
             _buttons = new List<Button>
             {
@@ -100,9 +112,36 @@ namespace FindMatch
             _permanentGray = new List<int>();
             _temporaryGray = new List<Button>();
 
-            _randomNumbersOfImages = GenerateMixedArray12();
+            _randomNumbersOfImages6 = GenerateArray6();
+            _randomNumbersOfImages12 = GenerateMixedArray12(_randomNumbersOfImages6);
+            SetMiniGrayImages();
 
             labelStep.Text = "0";
+        }
+
+        public void SetMiniGrayImages()
+        {
+            for (int i = 0; i < _randomNumbersOfImages6.Count; i++)
+            {
+                int imageNumber = _randomNumbersOfImages6[i];
+                SetMiniGrayImage(i, imageNumber);
+            }
+        }
+
+        public void SetMiniGrayImage(int key6, int imageNumber)
+        {
+            _miniImages[key6].Image = _imagesGray[imageNumber - 1];
+        }
+
+        public void SetMiniColorImage(int imageNumber)
+        {
+            foreach (PictureBox miniImage in _miniImages)
+            {
+                if (miniImage.Image.Equals(_imagesGray[imageNumber - 1]))
+                {
+                    miniImage.Image = _images[imageNumber - 1];
+                }
+            }
         }
 
         public static int GenerateRandom()
@@ -126,32 +165,40 @@ namespace FindMatch
             }
         }
 
-        public static List<int> GenerateMixedArray12()
+        public static List<int> GenerateArray6()
         {
-            List<int> tableArray = new List<int>(); // создаем целочисленный массив 
+            List<int> tableArray = new List<int>(); // создаем целочисленный массив из 6 элементов
 
-            while (true) // создаем бесконечный цикл, пока элементов в массиве не станет 12
+            while (tableArray.Count < 6) // создаем цикл, пока элементов в массиве не станет 6
             {
                 //Получить очередное случайное число
                 int randomInt = GenerateRandom();
 
-                // если случайное число отсутствует в массиве то добавляем его 2 раза в массив
-                if (!tableArray.Contains(randomInt))  
+                // если случайное число отсутствует в массиве то добавляем его 1 раз в массив
+                if (!tableArray.Contains(randomInt))
                 {
-                    tableArray.Add(randomInt);
                     tableArray.Add(randomInt);
                 }
 
-                // доходим до 12 и выходим из бесконечного цикла
-                if (tableArray.Count >= 12)
-                {
-                    break;
-                }
             }
 
-            CheckAndShuffle(tableArray);
-
             return tableArray;
+
+        }
+
+        public static List<int> GenerateMixedArray12(List<int> tableArray6)
+        {
+            List<int> tableArray12 = new List<int>();
+
+            foreach (int i in tableArray6)
+            {
+                tableArray12.Add(i);
+                tableArray12.Add(i);
+            }
+
+            CheckAndShuffle(tableArray12);
+
+            return tableArray12;
         }
 
         /// <summary>
@@ -224,9 +271,9 @@ namespace FindMatch
         public void OpenButton(int buttonNumber)
         {
             // число, которое загадано
-            int imageNumber = _randomNumbersOfImages[buttonNumber - 1];
+            int imageNumber = _randomNumbersOfImages12[buttonNumber - 1];
 
-           SetColorImage(buttonNumber, imageNumber);
+            SetColorImage(buttonNumber, imageNumber);
 
             // добавляем в массив текущую открытую кнопку
             _openedButtons.Add(buttonNumber);
@@ -234,8 +281,12 @@ namespace FindMatch
             _lastButtonNumber = buttonNumber;
         }
 
-        private void ButtonClick(int buttonNumber)
+        private void ButtonClick(object sender, EventArgs e)
         {
+            string buttonName = ((Button)sender).Name;
+            string buttonNumberStr = buttonName.Replace("button", "");
+            int buttonNumber = int.Parse(buttonNumberStr);
+
             if (_startTime == null)
             {
                 _startTime = DateTime.Now;
@@ -246,26 +297,27 @@ namespace FindMatch
                 return;
             }
 
-            int buttonContains = _randomNumbersOfImages[buttonNumber - 1];
+            int buttonContains = _randomNumbersOfImages12[buttonNumber - 1];
 
             // если было нечетное
             if (_openedButtons.Count % 2 == 1)
             {
-                // поле, отвечающее за кол-во шагов, нужно сначала сконвертировать в инт, потом 
-                // шаг прибавляем на 1 и обратно превращаем в текст
-                labelStep.Text = (int.Parse(labelStep.Text)+1).ToString();
+                // поле, отвечающее за кол-во шагов,
+                labelStep.Text = (int.Parse(labelStep.Text) + 1).ToString();
 
                 // если нечетное одинаковое число: юзер нашел пару
                 if (_lastButtonContains == buttonContains)
-                { 
+                {
                     _permanentGray.Add(_lastButtonNumber);
                     _permanentGray.Add(buttonNumber);
 
-                    SetGrayImage(_lastButtonNumber, _randomNumbersOfImages[_lastButtonNumber - 1]);
+                    SetGrayImage(_lastButtonNumber, _randomNumbersOfImages12[_lastButtonNumber - 1]);
                     OpenButton(buttonNumber);
-                    SetGrayImage(buttonNumber, _randomNumbersOfImages[buttonNumber - 1]);
+                    SetGrayImage(buttonNumber, _randomNumbersOfImages12[buttonNumber - 1]);
 
-                    if (_permanentGray.Count == _buttons.Count)
+                    SetMiniColorImage(_randomNumbersOfImages12[buttonNumber - 1]);
+
+                    if (_permanentGray.Count == _buttons.Count && _startTime != null)
                     {
                         // открыты все кнопки, таймер останавливается
                         DateTime startTime = (DateTime)_startTime;
@@ -273,8 +325,8 @@ namespace FindMatch
                         _startTime = null;
 
                         MessageBox.Show("Поздравляем! Вы закончили игру за:\r\n" +
-                                        labelStep.Text +" шагов, "
-                                        + (int)fromGameStart.TotalMinutes + 
+                                        labelStep.Text + " шагов, "
+                                        + (int)fromGameStart.TotalMinutes +
                                         " мин. и за " + fromGameStart.Seconds + " сек.");
                     }
                 }
@@ -339,67 +391,6 @@ namespace FindMatch
             _buttons[buttonNumber - 1].Enabled = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ButtonClick(1);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ButtonClick(2);
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            ButtonClick(3);
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            ButtonClick(4);
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            ButtonClick(5);
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            ButtonClick(6);
-        }
-        private void button7_Click(object sender, EventArgs e)
-        {
-            ButtonClick(7);
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            ButtonClick(8);
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            ButtonClick(9);
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            ButtonClick(10);
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            ButtonClick(11);
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-            ButtonClick(12);
-        }
-
         private void buttonRestart_Click(object sender, EventArgs e)
         {
             Start();
@@ -414,7 +405,7 @@ namespace FindMatch
         {
             if (_startTime != null)
             {
-                DateTime startTime = (DateTime) _startTime;
+                DateTime startTime = (DateTime)_startTime;
                 TimeSpan fromGameStart = DateTime.Now - startTime;
 
                 labelTimer.Text = (int)fromGameStart.TotalMinutes + " мин. и " + fromGameStart.Seconds + " сек.";

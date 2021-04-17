@@ -50,7 +50,19 @@ namespace FindMatch
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.labelStep = new System.Windows.Forms.Label();
+            this.pictureBoxMini1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMini2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMini3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMini6 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMini5 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMini4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini4)).BeginInit();
             this.SuspendLayout();
             // 
             // timer
@@ -116,12 +128,12 @@ namespace FindMatch
             this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button12.ForeColor = System.Drawing.Color.Red;
-            this.button12.Location = new System.Drawing.Point(615, 403);
+            this.button12.Location = new System.Drawing.Point(609, 402);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(162, 119);
             this.button12.TabIndex = 11;
             this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.button12.Click += new System.EventHandler(this.ButtonClick);
             // 
             // button11
             // 
@@ -129,12 +141,12 @@ namespace FindMatch
             this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button11.ForeColor = System.Drawing.Color.Red;
-            this.button11.Location = new System.Drawing.Point(420, 403);
+            this.button11.Location = new System.Drawing.Point(417, 402);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(162, 119);
             this.button11.TabIndex = 10;
             this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.button11.Click += new System.EventHandler(this.ButtonClick);
             // 
             // button10
             // 
@@ -142,12 +154,12 @@ namespace FindMatch
             this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button10.ForeColor = System.Drawing.Color.Red;
-            this.button10.Location = new System.Drawing.Point(224, 403);
+            this.button10.Location = new System.Drawing.Point(227, 402);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(162, 119);
             this.button10.TabIndex = 9;
             this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.button10.Click += new System.EventHandler(this.ButtonClick);
             // 
             // button9
             // 
@@ -155,12 +167,12 @@ namespace FindMatch
             this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button9.ForeColor = System.Drawing.Color.Red;
-            this.button9.Location = new System.Drawing.Point(29, 403);
+            this.button9.Location = new System.Drawing.Point(35, 402);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(162, 119);
             this.button9.TabIndex = 8;
             this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.button9.Click += new System.EventHandler(this.ButtonClick);
             // 
             // button8
             // 
@@ -168,12 +180,12 @@ namespace FindMatch
             this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button8.ForeColor = System.Drawing.Color.Red;
-            this.button8.Location = new System.Drawing.Point(615, 268);
+            this.button8.Location = new System.Drawing.Point(609, 267);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(162, 119);
             this.button8.TabIndex = 7;
             this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.button8.Click += new System.EventHandler(this.ButtonClick);
             // 
             // button7
             // 
@@ -181,12 +193,12 @@ namespace FindMatch
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button7.ForeColor = System.Drawing.Color.Red;
-            this.button7.Location = new System.Drawing.Point(420, 268);
+            this.button7.Location = new System.Drawing.Point(417, 267);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(162, 119);
             this.button7.TabIndex = 6;
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button7.Click += new System.EventHandler(this.ButtonClick);
             // 
             // button6
             // 
@@ -194,12 +206,12 @@ namespace FindMatch
             this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button6.ForeColor = System.Drawing.Color.Red;
-            this.button6.Location = new System.Drawing.Point(224, 268);
+            this.button6.Location = new System.Drawing.Point(227, 267);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(162, 119);
             this.button6.TabIndex = 5;
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button6.Click += new System.EventHandler(this.ButtonClick);
             // 
             // button5
             // 
@@ -207,12 +219,12 @@ namespace FindMatch
             this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button5.ForeColor = System.Drawing.Color.Red;
-            this.button5.Location = new System.Drawing.Point(29, 268);
+            this.button5.Location = new System.Drawing.Point(35, 267);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(162, 119);
             this.button5.TabIndex = 4;
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.Click += new System.EventHandler(this.ButtonClick);
             // 
             // button4
             // 
@@ -220,12 +232,12 @@ namespace FindMatch
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button4.ForeColor = System.Drawing.Color.Red;
-            this.button4.Location = new System.Drawing.Point(615, 130);
+            this.button4.Location = new System.Drawing.Point(609, 130);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(162, 119);
             this.button4.TabIndex = 3;
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.ButtonClick);
             // 
             // button3
             // 
@@ -233,12 +245,12 @@ namespace FindMatch
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button3.ForeColor = System.Drawing.Color.Red;
-            this.button3.Location = new System.Drawing.Point(420, 130);
+            this.button3.Location = new System.Drawing.Point(417, 130);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(162, 119);
             this.button3.TabIndex = 2;
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.ButtonClick);
             // 
             // button2
             // 
@@ -246,12 +258,12 @@ namespace FindMatch
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(224, 130);
+            this.button2.Location = new System.Drawing.Point(227, 130);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(162, 119);
             this.button2.TabIndex = 1;
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.ButtonClick);
             // 
             // button1
             // 
@@ -259,12 +271,12 @@ namespace FindMatch
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(29, 130);
+            this.button1.Location = new System.Drawing.Point(35, 130);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(162, 119);
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.ButtonClick);
             // 
             // labelStep
             // 
@@ -276,11 +288,71 @@ namespace FindMatch
             this.labelStep.TabIndex = 17;
             this.labelStep.Text = "0";
             // 
+            // pictureBoxMini1
+            // 
+            this.pictureBoxMini1.Location = new System.Drawing.Point(98, 537);
+            this.pictureBoxMini1.Name = "pictureBoxMini1";
+            this.pictureBoxMini1.Size = new System.Drawing.Size(83, 64);
+            this.pictureBoxMini1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMini1.TabIndex = 18;
+            this.pictureBoxMini1.TabStop = false;
+            // 
+            // pictureBoxMini2
+            // 
+            this.pictureBoxMini2.Location = new System.Drawing.Point(204, 537);
+            this.pictureBoxMini2.Name = "pictureBoxMini2";
+            this.pictureBoxMini2.Size = new System.Drawing.Size(83, 64);
+            this.pictureBoxMini2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMini2.TabIndex = 19;
+            this.pictureBoxMini2.TabStop = false;
+            // 
+            // pictureBoxMini3
+            // 
+            this.pictureBoxMini3.Location = new System.Drawing.Point(311, 537);
+            this.pictureBoxMini3.Name = "pictureBoxMini3";
+            this.pictureBoxMini3.Size = new System.Drawing.Size(83, 64);
+            this.pictureBoxMini3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMini3.TabIndex = 20;
+            this.pictureBoxMini3.TabStop = false;
+            // 
+            // pictureBoxMini6
+            // 
+            this.pictureBoxMini6.Location = new System.Drawing.Point(624, 537);
+            this.pictureBoxMini6.Name = "pictureBoxMini6";
+            this.pictureBoxMini6.Size = new System.Drawing.Size(83, 64);
+            this.pictureBoxMini6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMini6.TabIndex = 23;
+            this.pictureBoxMini6.TabStop = false;
+            // 
+            // pictureBoxMini5
+            // 
+            this.pictureBoxMini5.Location = new System.Drawing.Point(520, 537);
+            this.pictureBoxMini5.Name = "pictureBoxMini5";
+            this.pictureBoxMini5.Size = new System.Drawing.Size(83, 64);
+            this.pictureBoxMini5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMini5.TabIndex = 22;
+            this.pictureBoxMini5.TabStop = false;
+            // 
+            // pictureBoxMini4
+            // 
+            this.pictureBoxMini4.Location = new System.Drawing.Point(415, 537);
+            this.pictureBoxMini4.Name = "pictureBoxMini4";
+            this.pictureBoxMini4.Size = new System.Drawing.Size(83, 64);
+            this.pictureBoxMini4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMini4.TabIndex = 21;
+            this.pictureBoxMini4.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 565);
+            this.ClientSize = new System.Drawing.Size(833, 621);
+            this.Controls.Add(this.pictureBoxMini6);
+            this.Controls.Add(this.pictureBoxMini5);
+            this.Controls.Add(this.pictureBoxMini4);
+            this.Controls.Add(this.pictureBoxMini3);
+            this.Controls.Add(this.pictureBoxMini2);
+            this.Controls.Add(this.pictureBoxMini1);
             this.Controls.Add(this.labelStep);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
@@ -304,6 +376,12 @@ namespace FindMatch
             this.Name = "Form1";
             this.Text = "Найди пару (Жигалова Олеся)";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,6 +408,12 @@ namespace FindMatch
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelStep;
+        private System.Windows.Forms.PictureBox pictureBoxMini1;
+        private System.Windows.Forms.PictureBox pictureBoxMini2;
+        private System.Windows.Forms.PictureBox pictureBoxMini3;
+        private System.Windows.Forms.PictureBox pictureBoxMini6;
+        private System.Windows.Forms.PictureBox pictureBoxMini5;
+        private System.Windows.Forms.PictureBox pictureBoxMini4;
     }
 }
 
