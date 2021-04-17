@@ -213,12 +213,22 @@ namespace FindMatch
             {
                 // смотрим текущую и слевастоящую кнопку
                 int element = array[i];
-                int elementBefore = array[i - 1];
+                int elementBefore1 = array[i - 1];
 
                 // если элементы массива равны (т.е. одинаковые цифры рядом стоят) то возвращаем false
-                if (element == elementBefore)
+                if (element == elementBefore1)
                 {
                     return false;
+                }
+                // ReSharper disable once InvertIf
+                if (i >= 4)
+                {
+                    int elementBefore4 = array[i - 4];
+
+                    if (element == elementBefore4)
+                    {
+                        return false;
+                    }
                 }
             }
 
